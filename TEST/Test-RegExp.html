@@ -1,0 +1,140 @@
+<html>
+<head>
+<title></title>
+<link rel="stylesheet" type="text/css" href="test.css">
+<script type="text/javascript">
+
+document.onmouseup=txtParse;
+
+function txtParse()
+{
+    var range="";
+    var value = document.getElementById("txtRegExp").value;
+    var flags = document.getElementById("txtFlags").value;
+    var regExp = new RegExp(value,flags);
+    //var regExp = /und (\w*)/gi;
+    var result = 0;
+    
+    if(typeof document.selection!="undefined") {
+        
+        // Ausgewählten Text merken
+        range=document.selection.createRange();
+        
+        // Text parsen
+        tmp = regExp.exec(range.htmlText);
+        
+        test="";
+        while (result = regExp.exec(range.htmlText)) {
+            test += "\n    - " + result[1];
+        }
+        
+        // Eigenschaften finden
+        
+        
+        // Symbole markieren
+        
+    }    
+    
+    document.getElementById("output").value =
+        "Ergebnis: "+result+"\n"+
+        "\nErgebnis: "+tmp+"\n"+
+        "0: "+range.parentElement().tagName+"\t"+
+        "1: "+document.getElementById("output").tagName+"\t"+
+//        "1: "+tmp[1]+"\t"+
+//        "2: "+tmp[2]+"\t"+
+//        "3: "+tmp[3]+"\n"+
+        "\nErgebnis: "+test+"\n"+
+        "\n$1: "+regExp.$1+
+        "\n$2: "+regExp.$2+
+        "\n$3: "+regExp.$3+
+        "\n$4: "+regExp.$4+
+        "\n$5: "+regExp.$5+
+        "\n______________________________\n\n"+
+        range.htmlText;
+}
+
+function txtOps(cmd) {
+	var txtFld=document.getElementById("text1");
+	var content;
+
+/*	if(txtFld) {
+	    txtFld.focus();
+	    txtFld.value += "\n\n\n" + document.selection.createRange();
+//	    document.execCommand(cmd);
+	    txtFld.focus();
+	}
+*/
+	txtFld.focus();
+	if(typeof document.selection!="undefined") {
+	    // Einfügen Formatierungscode
+	    var range=document.selection.createRange();
+	    var insText=range.text;
+	    switch(cmd) {
+		case "Cut":
+		    alert(insText);
+		    break;
+		case "Bold":
+		    range.text="<b>"+insText+"</b>";
+		    break;
+		case "Italic":
+		    range.text="<i>"+insText+"</i>";
+		    break;
+	    }
+	    // Anpassen der Cursorposition
+	    range=document.selection.createRange();
+	    if(insText.length==0) 
+	        range.move('character',-3);
+	    else
+	        range.moveStart('character',3+insText.length+3);
+	} 
+}
+</script>
+</head>
+
+<body>
+<form>
+<table border="0" width="100%" height="100%">
+  <tr>
+    <td height="5%">
+    <b>Regular Expression: </b>
+    <input type="text" value="und (\w*)" style="width:240px" id="txtRegExp">
+    <input type="text" value="gi" style="width:80px" id="txtFlags">
+    <input type="reset" value="Clear Txt" style="width:80px" onclick="return true">
+    </td>
+  </tr>
+  <tr>
+    <td height="45%">
+    Die Erzählung (nachzulesen hier) schildert die Begegnung eines Touristen mit einem einheimischen Fischer. 
+    Der Tourist findet den Fischer dösend in dessen Boot vor. Trotz optimaler Fangbedingungen fährt er nicht 
+    noch einmal hinaus. Es entwickelt sich ein Gespräch, in dem der Tourist die Möglichkeiten strategischen 
+    wirtschaftlichen <u>Handelns</u> aufzeichnet. Er redet sich in eine Begeisterung hinein und träumt schon von 
+    ganzen Fangflotten, die der Fischer betreiben könne. Am Ende könne er als reicher Mann völlig sorglos in 
+    der Sonne liegen.  »Aber das tu ich ja schon jetzt«, sagte der Fischer, »ich sitze beruhigt am Hafen und 
+    döse, nur Ihr Klicken hat <b><i>mich</i></b> dabei gestört.«  Tatsächlich zog der solcherlei belehrte Tourist 
+    nachdenklich von dannen, denn früher hatte er auch einmal geglaubt, er arbeite, um eines Tages einmal 
+    nicht mehr arbeiten zu müssen, und es blieb keine Spur von Mitleid mit dem ärmlich gekleideten Fischer 
+    in ihm zurück, nur ein wenig Neid. <b><font color="orange">Mitten im deutschen</font></b> Wirtschaftsboom, dazu noch zum Tag der Arbeit, 
+    provoziert Böll seine Leser durch Infragestellung ihrer neu eroberten Werte und ihres frisch errungenen 
+    Selbstbewusstseins. Der Tourist verkörpert zu Anfang der Erzählung den Idealtyp der Zeit: Erfolg 
+    ermöglicht ihm Bildung und Reisen, ein gönnerhaftes Auftreten. Sein Urlaub erscheint ihm als selbst 
+    erzieltes Resultat erfolgreichen wirtschaftlichen Handelns, vor allem im Vergleich zur ungesicherten 
+    Faulenzerei des Fischers, die ihn von Anfang an irritiert. Die Erzählung entwickelt sich zunächst in 
+    Gegensätzen zwischen dem ärmlich gekleideten Fischer und dem schicken Touristen. Aber obwohl der Reisende 
+    im Sinne des Wirtschaftswunders die Gewinnerperspektive einnimmt, wirkt er von Anfang an nervös und 
+    unsicher gegenüber seinem ärmlichen Gesprächspartner.<br>
+    <br>
+    <font face="Impact">Es sind verschiedene Werte der Wirtschaftswunderzeit, die ins Visier der Böllschen Ironie geraten, nicht 
+    nur der Materialismus, vor allem auch die hektische Betriebsamkeit, die sich Ruhe nur dann gönnt, wenn 
+    sie durch ein arbeitserfülltes Leben gerechtfertigt ist. </font>
+    </td>
+  </tr>
+  <tr>
+    <td height="50%">
+    <textarea id="output" style="width:100%;height:100%">
+    </textarea>
+    </td>
+  </tr>
+</table>
+</form>
+</body>
+</html>

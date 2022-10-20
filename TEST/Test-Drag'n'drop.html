@@ -1,0 +1,83 @@
+<html>
+<head>
+<title>Desktop-Notes</title>
+<link rel="stylesheet" type="text/css" href="../data/notes.css">
+</head>
+
+<script>
+
+var curDiv=0;
+
+</script>
+
+<body scroll="no">
+
+<script type="text/javascript">
+
+document.onmousedown=drgstr;
+document.onmouseup=drpstp;
+var flag=0;
+
+var curDiv,startX,startY,Xpos,Ypos,Wpos,Hpos;
+var Xval=0,Yval=0;
+var lastInd=4;
+
+function drgstr(e)
+{
+    if(!e) e = window.event;
+    if (e.target) curDiv = e.target; // FF
+    else if (e.srcElement) curDiv = e.srcElement; // IE
+
+    if(curDiv.id) {
+        startX = document.all ? event.clientX : src.pageX;
+        startY = document.all ? event.clientY : src.pageY;
+        //startX=event.clientX;
+        //startY=event.clientY;
+        document.getElementById(curDiv.id).style.zIndex=lastInd;
+        lastInd++;
+        flag=1;window.status=flag;
+        Xpos=parseInt(curDiv.style.left);
+        Ypos=parseInt(curDiv.style.top); 
+        Wpos=parseInt(curDiv.style.width);
+        Hpos=parseInt(curDiv.style.height);
+
+    document.onmousemove=mov;
+    return false;
+  }
+}
+
+function mov(e)
+{
+    if(flag=1) drpstp(e);
+    
+  if(curDiv.id) {
+	Xval=document.all ? event.clientX-startX : src.pageX-startX;
+	Yval=document.all ? event.clientY-startY : src.pageY-startY;
+	curDiv.style.left=Xpos+Xval;
+	curDiv.style.top=Ypos+Yval;
+    window.status= flag+"; "+curDiv.style.left;
+  }
+}
+
+function drpstp(e)
+{
+    window.status+=" --> OK";
+    curDiv=false;
+}
+</script>
+
+<div id='note0' class='note' style="left:50px;top:50px;width:128px;height:128px;z-index:1;background-color:#ffa;filter:alpha(opacity=80)">
+<br></div>
+<div id='note1' class='note' style='left:70px;top:70px;width:128px;height:128px;z-index:3;background-color:#aff;filter:alpha(opacity=80) progid:DXImageTransform.Microsoft.Shadow(color=#000000, direction=135)'>
+<br><br><br><br><br><br><br><br><br><br><br><br><br><br></div>
+<div id='note2' class='note' style='left:90px;top:90px;width:128px;height:128px;z-index:2;background-color:#faf;filter:progid:DXImageTransform.Microsoft.Shadow(color=#000000, direction=135)'>
+<br></div>
+
+
+<script type="text/javascript">
+<!--
+
+//-->
+</script>
+</body>
+</html>

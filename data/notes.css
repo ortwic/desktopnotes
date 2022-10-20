@@ -1,0 +1,168 @@
+a:link {
+	color:blue;
+	text-decoration:none;
+}
+a:visited {
+	color:blue;
+	text-decoration:none;
+}
+a:hover {
+	color:blue;
+	text-decoration:none;
+	border-bottom:1px solid blue;
+}
+
+::selection {background:#c0c8d0;color:#000000;}
+
+body 	{ 
+	font-family:Arial;
+	font-size:10pt;
+	background:#808080;
+	margin:0px;
+    overflow:hidden;
+}
+
+p   {
+    margin-top:0pt;
+    margin-bottom:2pt;
+}
+
+img {
+    border:0;
+}
+
+div {
+	scrollbar-base:black;
+	scrollbar-3d-light-color:ThreeDShadow;
+	scrollbar-arrow-color:ThreeDDarkShadow;
+	scrollbar-darkshadow-color:ButtonShadow;
+	scrollbar-face-color:ThreeDHighlight;
+	scrollbar-highlight-color:ThreeDHighlight;
+	scrollbar-shadow-color:ThreeDHighlight;
+	scrollbar-track-color:ButtonFace; /*transparent; /* erst ab CSS3*/
+}
+
+textarea { 
+	color:#000;
+	font-family:Arial;
+	font-size:10pt;
+	border-left:solid 1px white;
+	border-right:0;
+    border-top:0;
+    border-bottom:0;
+	background:#FFF;
+	overflow:auto;
+
+	filter:alpha(opacity=75);
+	scrollbar-base:black;
+	scrollbar-3d-light-color:#404040;
+	scrollbar-arrow-color:black;
+	scrollbar-darkshadow-color:#404040;
+	scrollbar-face-color:white;
+	scrollbar-highlight-color:white;
+	scrollbar-shadow-color:white;
+	scrollbar-track-color:white;
+}
+
+select {
+    background:#ffa;
+    border:1px solid gray; /* nicht bei IE */
+    font-size:8pt;
+}
+
+ol, ul {
+    margin-left:32px;
+}
+
+div.note	{
+	color:black;
+	font-size:10pt;
+	white-space:pre;
+
+	/*position: absolute;*/
+	border:solid 1px #808080;
+    background:#ffa;
+	width:128px;
+	height:128px;
+	padding:2px;
+	overflow:hidden;
+}
+
+hr {
+	color:ButtonShadow; /*gray;*/
+	height:1;
+}
+
+td {
+	font-size:10pt;
+}
+
+/*======== contextmenue ========*/
+div.contextMenu, div.dialog { 
+	/*position:absolute;*/
+	z-index:2147483646; /* = maximaler_zIndex - 1 */
+	/*visibility:hidden;*/
+	cursor:default;
+	background-color:ButtonFace; /*#c0c8d0; /*b0c4de; /*4682b4;*/
+	border:solid 1px ButtonShadow; /*gray;*/
+	padding:1px;
+} 
+
+div.contextMenu table tr.item { 
+	color:#000000;
+	text-decoration:none; 
+	background-color:ButtonFace;
+	width:100%;
+}
+
+div.contextMenu table tr.item:hover { 
+	color:HighlightText; /*#ccc080; */
+	text-decoration:none; 
+	background-color:Highlight;
+	width:100%;
+} 
+
+div.contextMenu table tr.item_dis {
+    color:ButtonShadow;
+}
+
+button.cmdCtrl {
+	border:solid 1px ButtonShadow; /*gray;*/
+	width:18px;
+	height:18px;
+	font-family:Webdings;
+	font-size:11pt;
+	padding:0px;
+}
+
+#editForm table td button {
+    width:18px;
+    height:18px;
+    text-align:center;
+    font-family:Arial;
+    font-size:9pt;
+	border:solid 1px ButtonFace;
+}
+
+#editForm table td button:hover {
+	border:solid 1px;
+	border-top-color:#ddd;
+	border-left-color:#ddd;
+	border-bottom-color:#222;
+	border-right-color:#222;
+}
+
+#editForm table td button:active {
+	border:solid 1px;
+	border-top-color:#222;
+	border-left-color:#222;
+	border-bottom-color:#ddd;
+	border-right-color:#ddd;
+}
+
+#editForm table td button.cmdDis {
+    color:ButtonShadow;
+    border:solid 1px gray;
+}
+
+/*======== dialogs ========*/

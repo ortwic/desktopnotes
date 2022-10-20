@@ -1,0 +1,169 @@
+<html>
+
+<head>
+<title>Rich Text Editing</title>
+<link rel="stylesheet" type="text/css" href="../data/notes.css">
+</head>
+
+<script>
+
+var curObj=0;
+
+function format(command, parameter, tf)
+{
+  if(!tf) tf=false;
+  if(curObj!=0) {
+      curObj.focus();
+      if(command=="HR")
+          curObj.innerHTML+="<hr>";
+      else
+          document.execCommand(command, tf, parameter);
+  }
+}
+
+function editContent(src)
+{
+  curObj=src;
+  src.contentEditable = true;
+  src.style.border="8px ridge #6699FF";
+}
+
+function setCell(src)
+{
+  src.contentEditable = false;
+  src.style.border="1px solid gray";
+//  curObj=0;
+}
+
+function txtFrm(cmd,para,dlg) 
+{
+    var txtObj=document.getElementById("note");
+
+    var range,insText,insHtml;
+    if(!dlg) dlg=false;
+
+    if(typeof document.selection!="undefined") {
+        txtObj.focus(); 
+        
+        range=document.selection.createRange();
+        insText=range.Text; // enthält ausgewählten Text
+        insHTML=range.htmlText; // htmlText -> readOnly
+        
+        stat.value+="\ntext: " + insText;
+        stat.value+="\nhtmlText: " + range.htmlText;
+        stat.value+="\nhtmlText: " + range.htmlText.length;
+                
+        switch(cmd) {
+            case "BR":
+                range.pasteHTML(insHTML+"<br />");
+                break;
+            case "P":
+                range.pasteHTML(insHTML+"<p>" +range.htmlText+ "</p>");
+                break;
+            case "HR":
+                range.pasteHTML(insHTML+"<hr />");
+                break;
+            default:
+                document.execCommand(cmd, dlg, para);
+                break;
+	    }
+        
+        // Anpassen der Cursorposition
+	    range=document.selection.createRange();
+	    if(insHTML.length==0) 
+	        range.move('character',-3);
+	    else
+	        range.moveStart('character',3+insHTML.length+3);
+        
+	} 
+}
+
+function showRange()
+{
+    var range=document.selection.createRange();
+    
+    stat.value = "text: " + range.Text + 
+        "\nhtmlText: " + range.htmlText + 
+        "\nboundingWidth/Height: " + range.boundingWidth + ", " + range.boundingHeight +
+        "\nboundingLeft/Top: " + range.boundingLeft + ", " + range.boundingTop +
+        "\noffsetLeft/Top: " + range.offsetLeft + ", " + range.offsetTop + 
+        "\nhtmlText: " + range.htmlText.length;
+}
+
+</script>
+
+<body>
+
+<style>
+button {
+	z-index:1;
+	cursor:default; 
+	width:32px;
+	color:#000080;
+	background-color:#6699FF;
+	border:solid 1px silver;
+    font-size:8pt;
+	padding:1px;
+}
+select {
+    background:#ffa;
+    width:96px;
+    font-size:8pt;
+}
+</style>
+
+<select onChange="format('FontName', this.options[this.selectedIndex].innerText);">
+    <option>Arial</option>
+    <option>Comic Sans MS</option>
+    <option>Courier New</option>
+    <option>Fixedsys</option>
+    <option>Georgia</option>
+    <option>Helvetica</option>
+    <option>Times New Roman</option>
+    <option>Verdana</option>
+</select>
+<select id="fntClr" onChange="format('ForeColor', this.options[this.selectedIndex].style.color);">
+    <option style="color:black">Schwarz</option>
+    <option style="color:gray">Grau</option>
+    <option style="color:silver">Silber</option>
+    <option style="color:white">Wei&szlig;</option>
+    <option style="color:red">Rot</option>
+    <option style="color:maroon">Dunkelrot</option>
+    <option style="color:orange">Orange</option>
+    <option style="color:yellow">Gelb</option>
+    <option style="color:olive">Dunkelgelb</option>
+    <option style="color:lime">Hellgr&uuml;n</option>
+    <option style="color:green">Gr&uuml;n</option>
+    <option style="color:aqua">T&uuml;rkis</option>
+    <option style="color:teal">Blaugr&uuml;n</option>
+    <option style="color:blue">Blau</option>
+    <option style="color:navy">Dunkelblau</option>
+    <option style="color:fuchsia">Pink</option>
+    <option style="color:purple">Lila</option>
+</select>&nbsp;
+<button onClick="format('Bold', '');"><b>Fett</b></button>
+<button onClick="format('Italic', '');"><i>Kurs</i></button>
+<button onClick="format('Underline', '');"><u>Unte</u></button>&nbsp;
+<button onClick="format('FontSize', 1);" style="width:32px">-</button>
+<button onClick="format('FontSize', 4);" style="width:32px">+</button>&nbsp;
+<button onClick="format('JustifyLeft', '');" style="width:64px">linksbündig</button>&nbsp;
+<button onClick="format('JustifyCenter', '');" style="width:64px">zentriert</button>&nbsp;
+<button onClick="format('JustifyRight', '');" style="width:64px">rechtsbündig</button>&nbsp;
+<p>
+<button onClick="txtFrm('BR');">BR</button>
+<button onClick="txtFrm('P');">P</button>
+<button onClick="txtFrm('HR');">HR</button>&nbsp;
+<button onClick="format('CreateLink','gtp://',true);" style="width:96px">Hyperlink</button>&nbsp;
+<button onClick="showRange();" style="width:96px">Range-Obj</button>&nbsp;
+</p>
+
+<div class="note" style="height:320px; width:320; background:#ffa;
+	font-face:Arial;"
+	ondblclick="editContent(this)" onblur="setCell(this)"
+	id="note"></div>
+
+<textarea id="stat" style="margin-left:340px;width:320px;height:320px;">
+</textarea>
+</body>
+
+</html>

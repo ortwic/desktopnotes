@@ -1,0 +1,46 @@
+   Geplant:
+   ========
+ * Codeoptimierung
+
+   Done:
+   =====
+   ab v0.1
+   -------
+ + Drag'n'Drop
+ + Textbearbeitung
+ + Cookiemanagement
+ + Speichern der Daten
+ + Löschen von Daten
+ + Bearbeiten von Eigenschaften
+ + Bearbeitung vom Hintergrund
+ + Speichern des Hintergrundes
+ + Transparenz für Notes
+   
+   ab v0.3
+   -------
+ + OOP-Struktur für Notes
+ + TTL in Sekunden für Notes
+ + kaskadiertes Menü
+ + Transparenz des Menüs
+ + 3D-Shadow
+ + Cut/Copy/Paste für Textarea
+ + Textarea formatieren
+ + Schutz vor zIndex-Überlauf
+ + Individueller Notefarben
+ + Warnzeit vor Löschung
+ + Exportfunktion (HTML & Code)
+
+   ab v0.4
+   -------
+ + Textbearbeitung "contentEditable"
+ + Auswahl des Textbearbeitungsmodus
+ + Diagnoseanzeige
+ + Toolbar für "contentEditable"
+ + Overflow-Verhalten einstellbar
+ + Größenerkennung Cookie
+ + Bugfixing
+
+   ab v0.5
+   -------
+ + Notes in Datei speichern mit FSO
+   (unbegrenzte Anzahl von Notes möglich)

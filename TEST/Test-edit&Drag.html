@@ -1,0 +1,131 @@
+<html>
+<head>
+<title>Desktop-Notes</title>
+<link rel="stylesheet" type="text/css" href="../data/notes.css">
+</head>
+
+<script>
+
+var curObj=0;
+
+function format(command, parameter)
+{
+  if(curObj!=0) {
+      curObj.focus();
+      if(command=="HR")
+          curObj.innerHTML+="<hr>";
+      else
+          document.execCommand(command, false, parameter);
+  }
+}
+
+function setCell(src)
+{
+  src.contentEditable = false;
+//  curObj=0;
+}
+</script>
+
+<body scroll="no" onselectstart="if(event.shiftKey) return false;" 
+ onkeydown="if(event.shiftKey) this.style.cursor='nw-resize';" 
+ onkeyup="this.style.cursor='auto';">
+
+<script type="text/javascript">
+
+document.onmousedown=drgstr;
+document.onmouseup=drpstp;
+
+var curDiv,startX,startY,Xpos,Ypos,Wpos,Hpos;
+var Xval=0,Yval=0;
+var lastInd=4;
+
+function drgstr(e)
+{
+
+
+  if(event.srcElement.id=="dsktp") return false; //Muss angepasst werden
+  curDiv=event.srcElement; 
+  if(curDiv.id) {
+    startX=event.clientX;
+    startY=event.clientY;
+	window.status= curDiv.style.pixelLeft;
+    document.getElementById(curDiv.id).style.zIndex=lastInd;
+    lastInd++;
+
+    Xpos=curDiv.style.pixelLeft;
+    Ypos=curDiv.style.pixelTop; 
+    Wpos=curDiv.style.pixelWidth;
+    Hpos=curDiv.style.pixelHeight;
+
+    //Test
+//	document.getElementById(curDiv.id).innerHTML=curDiv.id+"<hr>";
+
+    document.onmousemove=mov;
+    return false;
+  }
+}
+
+function mov(e)
+{
+  if(curDiv.id) {
+    if(event.shiftKey) {
+	Xval=event.clientX-startX+Wpos;
+	Yval=event.clientY-startY+Hpos;
+	if(Xval>15) curDiv.style.width=Xval;
+	if(Yval>15) curDiv.style.height=Yval;
+    }
+    else {
+	Xval=event.clientX-startX;
+	Yval=event.clientY-startY;
+	curDiv.style.left=Xpos+Xval;
+	curDiv.style.top=Ypos+Yval;
+    }
+  }
+  return false;    
+}
+
+function drpstp(e)
+{
+  curDiv.contentEditable = true;
+  curDiv=false;
+}
+</script>
+
+<button onClick="format('Bold', '');"><b>Fett</b></button>&nbsp;
+<button onClick="format('Italic', '');"><i>Kursiv</i></button>&nbsp;
+<button onClick="format('Underline', '');"><u>Unterstrichen</u></button><br>
+<button onClick="format('FontName', 'Times New Roman');"><font face="Times New Roman">Times New Roman</font></button>&nbsp;
+<button onClick="format('FontName', 'Arial');"><font face="Arial">Arial</font></button>&nbsp;
+<button onClick="format('FontName', 'Courier New');"><font face="Courier New">Courier New</font></button><br>
+<button onClick="format('ForeColor', 'black');"><font color="black">schwarz</font></button>&nbsp;
+<button onClick="format('ForeColor', 'red');"><font color="red">rot</font></button>&nbsp;
+<button onClick="format('ForeColor', 'blue');"><font color="blue">blau</font></button><br>
+<button onClick="format('FontSize', 1);">1</button>&nbsp;
+<button onClick="format('FontSize', 3);">2</button>&nbsp;
+<button onClick="format('FontSize', 5);">5</button>&nbsp;
+<button onClick="format('FontSize', 7);">7</button><br>
+<button onClick="format('HR');">HR</button><br>
+<button onClick="format('JustifyLeft', '');">linksbündig</button>&nbsp;
+<button onClick="format('JustifyCenter', '');">zentriert</button>&nbsp;
+<button onClick="format('JustifyRight', '');">rechtsbündig</button>&nbsp;
+
+<p id="dsktp" style="width:100%;height:100%;position:absolute;">
+<div id='note0' class='note' style="left:50px;top:50px;width:128px;height:128px;z-index:1;background-color:#ffa;filter:alpha(opacity=60)"
+	onblur="setCell(this)">
+<br></div>
+<div id='note1' class='note' style='left:70px;top:70px;width:128px;height:128px;z-index:3;background-color:#aff;filter:alpha(opacity=60) progid:DXImageTransform.Microsoft.Shadow(color=#000000, direction=135)'
+	onblur="setCell(this)">
+<br><br><br><br><br><br><br><br><br><br><br><br><br><br></div>
+<div id='note2' class='note' style='left:90px;top:90px;width:128px;height:128px;z-index:2;background-color:#faf;filter:progid:DXImageTransform.Microsoft.Shadow(color=#000000, direction=135)'
+	onblur="setCell(this)">
+<br></div>
+</p>
+
+<script type="text/javascript">
+<!--
+
+document.getElementById("dsktp").style.backgroundColor="#e0e0e0";
+
+</script>
+</body>
+</html>

@@ -1,0 +1,362 @@
+<html>
+<head>
+<title>Allgemeine Einstellungen</title>
+<link rel="stylesheet" type="text/css" href="notes.css">
+<script type="text/javascript" src="cfgDsktp.js"></script>
+<script type="text/javascript" src="cfgCommon.js"></script>
+<script type="text/javascript" src="cfgBgImg.js"></script>
+<style>
+.help
+{
+    cursor:help;
+    border-bottom:1px dotted ButtonShadow;
+}
+</style>
+</head>
+
+<body class="config">
+<div style="width:100%;height:332px;overflow:hidden;margin-top:26px;">
+<!-- Hintergrund -->
+<div id="reg0" style="display:block">
+<table border="0" cellspacing="4" align="left">
+  <tr> 
+    <td colspan="3"> 
+      <fieldset class="tdBorder" style="padding:4px;">
+      <legend><b>Hintergrundfarbe</b></legend>
+      <table border="0" cellspacing="4" align="center" width="100%">
+        <tr height="16"> 
+          <td>Rot</td>
+          <td width="271" class="tdBorder"> <div id="sldRed" class="sldCtrl" onmousedown="dragLayer(255)"> 
+            </div></td>
+          <td class="tdBorder" style="padding:0px;"> <input id="txtRed" type="text" 
+        value="0" class="txt3nbr" maxlength="3" onkeyup="chgSld('sldRed',this,255)"> 
+          </td>
+        </tr>
+        <tr height="16"> 
+          <td>Gr&uuml;n</td>
+          <td width="271" class="tdBorder"> <div id="sldGrn" class="sldCtrl" onmousedown="dragLayer(255)"> 
+            </div>
+          <td class="tdBorder" style="padding:0px;"> <input id="txtGrn" type="text" 
+        value="0" class="txt3nbr" maxlength="3" onkeyup="chgSld('sldGrn',this,255)"> 
+          </td>
+        </tr>
+        <tr height="16"> 
+          <td>Blau</td>
+          <td width="271" class="tdBorder"> <div id="sldBlu" class="sldCtrl" onmousedown="dragLayer(255)"> 
+            </div>
+          <td class="tdBorder" style="padding:0px;"> <input id="txtBlu" type="text" 
+        value="0" class="txt3nbr" maxlength="3" onkeyup="chgSld('sldBlu',this,255)"> 
+          </td>
+        </tr>
+        <tr> 
+          <td id="colorPrvw" class="cmdDwn" colspan="3" style="background-color:#000000;height:24px;">&nbsp; 
+          </td>
+        </tr>
+      </table>
+      </legend>
+    </td>
+  </tr>
+  <tr> 
+    <td colspan="3"> 
+      <fieldset class="tdBorder" style="padding:4px;">
+      <legend><b>Hintergrundbild</b></legend>
+      <table border="0" cellspacing="4" align="left" width="100%">
+        <tr> 
+          <td colspan="2" align="justify">Pfad&nbsp; <input id="txtImgPath" type="text" style="width:304px;background:transparent;" class="tdBorder"> 
+          </td>
+        </tr>
+        <tr> 
+          <td width="185"> <span class="tdBorder" style="width:86px;text-align:center;padding:2px;"
+            onmouseover="this.className='cmdOvr'"
+            onmouseout="this.className='tdBorder'"
+            onmousedown="this.className='cmdDwn'"
+            onmouseup="this.className='tdBorder'"
+            onclick="document.getElementById('imgOpen').click()"> &Ouml;ffnen</span> 
+        <span class="tdBorder" style="width:86px;text-align:center;padding:2px;"
+            onmouseover="this.className='cmdOvr'"
+            onmouseout="this.className='tdBorder'"
+            onmousedown="this.className='cmdDwn'"
+            onmouseup="this.className='tdBorder'"
+            onclick="delImg()"> L&ouml;schen</span> 
+        <input type="file" accept="image/*" id="imgOpen" class="tdBorder" style="display:none"
+            onchange="gImgPath=openFil(this)"> </td>
+          <td rowspan="4"> <span class="tdBorder" id="imgPrvw" style="padding:0px;width:148px;height:111px;border:solid 1px back;"> 
+            &nbsp; </span> </td>
+        </tr>
+        <tr> 
+          <td> <span id="imgAtr0" class="tdBorder" style="width:16px;height:16px;"
+        onmouseover="cmdOvr(this)"
+        onmouseout="cmdOut(this)"
+        onmousedown="gImgStyle=chgBox('imgAtr',0)" onmouseup="loadImg(gImgPath,'imgPrvw',gImgStyle,2);">
+        </span> &nbsp;Zentriert </td>
+        </tr>
+        <tr> 
+          <td> <span id="imgAtr1" class="tdBorder" style="width:16px;height:16px;"
+        onmouseover="cmdOvr(this)"
+        onmouseout="cmdOut(this)"
+        onmousedown="gImgStyle=chgBox('imgAtr',1)" onmouseup="loadImg(gImgPath,'imgPrvw',gImgStyle,2);">
+        </span> &nbsp;Nebeneinander </td>
+        </tr>
+        <tr> 
+          <td> <span id="imgAtr2" class="tdBorder" style="width:16px;height:16px;"
+        onmouseover="cmdOvr(this)"
+        onmouseout="cmdOut(this)"
+        onmousedown="gImgStyle=chgBox('imgAtr',2)" onmouseup="loadImg(gImgPath,'imgPrvw',gImgStyle,2);">
+        </span> &nbsp;Strecken </td>
+        </tr>
+      </table>
+      </fieldset>
+    </td>
+  </tr>
+</table>
+</div>
+<!-- Text -->
+<div id="reg1" style="display:none">
+<table border="0" width="100%" cellspacing="4" align="left">
+<tr><td>
+  <fieldset class="tdBorder" style="padding:4px;">
+    <legend><b>Speichermethode f&uuml;r Daten</b></legend>
+    <table border="0" cellspacing="4" align="left">
+      <tr> 
+        <td colspan="3" width="346">
+          Cookiespeicher: <b><span id="ckiSize" style="color:green">&nbsp;</span></b> Bytes von <b>4096</b> Bytes frei
+        </td>
+      </tr>
+      <tr> 
+        <td width="16" valign="top"> 
+          <span id="txtSav0" class="tdBorder" style="width:16px;height:16px;"
+            onmouseover="cmdOvr(this)" onmouseout="cmdOut(this)"
+            onmousedown="gSavStyle=chgBox('txtSav',0)"></span>
+        </td>
+        <td width="330" colspan="2">
+          Notizen in Cookie speichern (zeitliche Begrenzung,<br>
+          Max. 4&nbsp;kB, Speichervorgang in Echtzeit)
+        </td>
+      </tr>
+      <tr> 
+        <td width="16" valign="top"> 
+          <span id="txtSav1" class="tdBorder" style="width:16px;height:16px;"
+            onmouseover="cmdOvr(this)" onmouseout="cmdOut(this)"
+            onmousedown="gSavStyle=chgBox('txtSav',1)"></span>
+        </td>
+        <td width="330" colspan="2">
+          Notizen in Datei speichern (FileSystemObject, ben&ouml;-<br>
+          tigt ActiveX Best&auml;tigung, manuelles Speichern)
+        </td>
+      </tr>
+      <tr> 
+        <td> 
+        </td>
+        <td>
+          Pfad
+        </td>
+        <td>
+          <input id="txtSavPath" type="text" style="width:284px;background:transparent;" class="tdBorder">
+        </td>
+      </tr>
+      <tr> 
+        <td> 
+        </td>
+        <td colspan="2">
+          <span id="txtSav2" class="tdBorder" style="width:16px;height:16px;"
+            onmouseover="if(gSavStyle>0)cmdOvr(this)" onmouseout="cmdOut(this)"
+            onmousedown="if(gSavStyle>0)gSavStyle=chgSubBox(this,1)"></span>
+          &nbsp;Bei Fokusverlust Datei automatisch speichern 
+        </td>
+      </tr>
+    </table>
+  </fieldset>
+</td></tr>
+<tr><td>
+  <fieldset class="tdBorder" style="padding:4px;">
+    <legend><b>Textbearbeitung</b></legend>
+    &nbsp;Bearbeitungsmethode f&uuml;r Notizen:
+    <table border="0" cellspacing="4" align="left" width="100%">
+      <tr> 
+        <td> 
+          <span id="txtAtr0" class="tdBorder" style="width:16px;height:16px;"
+            onmouseover="cmdOvr(this)" onmouseout="cmdOut(this)"
+            onmousedown="gTxtStyle=chgBox('txtAtr',0)"></span>
+          &nbsp;<span class="help" title="What you see is what you get.">WYSIWYG</span>
+          <font color="#c00000">(beta)</font> 
+        </td>
+      </tr>
+      <tr> 
+        <td> 
+          <span id="txtAtr1" class="tdBorder" style="width:16px;height:16px;"
+            onmouseover="cmdOvr(this)" onmouseout="cmdOut(this)"
+            onmousedown="gTxtStyle=chgBox('txtAtr',1)"></span> 
+          &nbsp;HTML-Code (Expertenmodus)
+        </td>
+      </tr>
+      <tr> 
+        <td> 
+          <span id="txtAtr2" class="tdBorder" style="width:16px;height:16px;"
+            onmouseover="cmdOvr(this)" onmouseout="cmdOut(this)"
+            onmousedown="gTxtStyle=chgBox('txtAtr',2)"></span> 
+          &nbsp;Textbearbeitung gesperrt
+        </td>
+      </tr>
+    </table>
+  </fieldset>
+</td></tr>
+</table>
+</div>
+<!-- Extras -->
+<div id="reg2" style="display:none">
+<table border="0" width="100%" cellspacing="4" align="left">
+<tr><td>
+  <fieldset class="tdBorder" style="padding:4px;">
+    <legend><b>Effekte</b></legend>
+    <table border="0" cellspacing="4">
+      <tr> 
+        <td>
+          <span id="chkShdw" class="tdBorder" style="width:16px;height:16px;"
+            onmouseover="cmdOvr(this)" onmouseout="cmdOut(this)"
+            onmousedown="gShdw=chgRadBtn(this,gShdw)"></span>
+          &nbsp;3D-Schatten
+        </td>
+      </tr>
+    </table>
+    <hr>
+    &nbsp;Effekte bei L&ouml;schbefehlen:
+    <table border="0" cellspacing="4">
+      <tr>
+        <td colspan="2">
+          <span id="chkDelGray" class="tdBorder" style="width:16px;height:16px;"
+            onmouseover="cmdOvr(this)" onmouseout="cmdOut(this)"
+            onmousedown="gDelGray=chgRadBtn(this,gDelGray)"></span>
+          &nbsp;Hintergrund in Graustufen
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <span id="chkDelBlur" class="tdBorder" style="width:16px;height:16px;"
+            onmouseover="cmdOvr(this)" onmouseout="cmdOut(this)"
+            onmousedown="gDelBlur=chgRadBtn(this,gDelBlur)"></span>
+          &nbsp;Verschwommener Hintergrund, Pixelradius:
+        </td>
+        <td class="tdBorder" style="padding:0px;">
+          <input id="txtBlur" type="text" value="4" class="txt2nbr" maxlength="2">
+        </td>
+      </tr>
+    </table>
+    <hr>
+    &nbsp;Transparenz f&uuml;r Men&uuml;s:
+    <table border="0" cellspacing="4">
+      <tr> 
+        <td class="tdBorder" id="opacL" style="width:18px;height:18px;font-family:Webdings;font-size:11pt;text-align:right;padding:0px"
+            onmouseover="cmdOvr(this)" onmouseout="cmdOut(this)"
+            onmousedown="moveSld(this,'sldOpac',-5)"
+            onmouseup="this.className='cmdOvr'">3 
+        </td>
+        <td width="116" height="18" class="tdBorder"> 
+          <div id="sldOpac" class="sldCtrl" onmousedown="dragLayer(100)"></div>
+        </td>
+        <td class="tdBorder" id="opacR" style="width:18px;height:18px;font-family:Webdings;font-size:11pt;text-align:center;padding:0px"
+            onmouseover="cmdOvr(this)" onmouseout="cmdOut(this)"
+            onmousedown="moveSld(this,'sldOpac',5)"
+            onmouseup="this.className='cmdOvr'">4 
+        </td>
+        <td class="tdBorder" style="padding:0px"> <input id="txtOpac" type="text" value="0" class="txt3nbr" maxlength="3" onkeyup="chgSld('sldOpac',this,100)"> 
+        </td>
+      </tr>
+    </table>
+  </fieldset>
+</td></tr>
+<tr><td>
+  <fieldset class="tdBorder" style="padding:4px;">
+    <legend><b>Gr&ouml;&szlig;enanpassung</b></legend>
+    <table border="0" cellspacing="4" align="left" width="100%">
+      <tr>
+        <td colspan="2">
+            Anpassungsmethode der Elemente bei &uuml;bergro&szlig;en Inhalten.
+            <font color="#c00000">(beta)</font> 
+        </td>
+      </tr>
+      <tr> 
+        <td> 
+          <span id="txtOflw0" class="tdBorder" style="width:16px;height:16px;"
+            onmouseover="cmdOvr(this)" onmouseout="cmdOut(this)"
+            onmousedown="gTxtOflw=chgBox('txtOflw',0)"></span>
+          &nbsp;Automatisch
+        </td>
+        <td> 
+          <span id="txtOflw1" class="tdBorder" style="width:16px;height:16px;"
+            onmouseover="cmdOvr(this)" onmouseout="cmdOut(this)"
+            onmousedown="gTxtOflw=chgBox('txtOflw',1)"></span> 
+          &nbsp;Sichtbar
+        </td>
+      </tr>
+      <tr> 
+        <td> 
+          <span id="txtOflw2" class="tdBorder" style="width:16px;height:16px;"
+            onmouseover="cmdOvr(this)" onmouseout="cmdOut(this)"
+            onmousedown="gTxtOflw=chgBox('txtOflw',2)"></span> 
+          &nbsp;Verstecken
+        </td>
+        <td> 
+          <span id="txtOflw3" class="tdBorder" style="width:16px;height:16px;"
+            onmouseover="cmdOvr(this)" onmouseout="cmdOut(this)"
+            onmousedown="gTxtOflw=chgBox('txtOflw',3)"></span> 
+          &nbsp;Scrollen
+        </td>
+      </tr>
+    </table>
+  </fieldset>
+</td></tr>
+</table>
+</div>
+
+</div>
+<!-- OK & Abbrechen -->
+<table width="100%" border="0" cellspacing="4" align="center">
+  <tr> 
+    <td class="tdBorder" style="width:33%;text-align:center;padding:2px;"
+    onmouseover="this.className='cmdOvr'"
+    onmouseout="this.className='tdBorder'"
+    onmousedown="this.className='cmdDwn'"
+    onmouseup="onOKclick()"> OK 
+    </td>
+    <td class="tdBorder" style="width:33%;text-align:center;padding:2px;"
+    onmouseover="this.className='cmdOvr'"
+    onmouseout="this.className='tdBorder'"
+    onmousedown="this.className='cmdDwn'"
+    onmouseup="window.close()"> Abbrechen
+    </td>
+    <td class="tdBorder" style="width:33%;text-align:center;padding:2px;"
+    onmouseover="this.className='cmdOvr'"
+    onmouseout="this.className='tdBorder'"
+    onmousedown="this.className='cmdDwn'"
+    onmouseup="setDefault(this)"> Standard
+    </td>
+  </tr>
+</table>
+
+<!-- Auswahl -->
+<div id="regCmd0" class="cmdDwn" 
+    style="width:106px;text-align:center;padding:2px;position:absolute;top:5px;left:12px;z-index:1;" 
+    onmouseover="cmdOvr(this)" onmouseout="cmdOut(this)"
+    onmousedown="chgReg(this,'reg0')">
+    Hintergrund
+</div>
+<div id="regCmd1" class="tdBorder" 
+    style="width:106px;text-align:center;padding:2px;position:absolute;top:5px;left:122px;z-index:1;" 
+    onmouseover="cmdOvr(this)" onmouseout="cmdOut(this)"
+    onmousedown="chgReg(this,'reg1')">
+    Textdaten
+</div>
+<div id="regCmd2" class="tdBorder" 
+    style="width:106px;text-align:center;padding:2px;position:absolute;top:5px;left:232px;z-index:1;" 
+    onmouseover="cmdOvr(this)" onmouseout="cmdOut(this)"
+    onmousedown="chgReg(this,'reg2')">
+    Extras
+</div>
+
+<script type="text/javascript">
+<!--
+    initCfg();
+//-->
+</script>
+</body>
+</html>

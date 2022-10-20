@@ -1,0 +1,67 @@
+a:link {
+	color:blue;
+	text-decoration:none;
+}
+a:visited {
+	color:blue;
+	text-decoration:none;
+}
+a:hover {
+	color:blue;
+	text-decoration:none;
+	border-bottom:1px solid blue;
+}
+
+::selection {background:#c0c8d0;color:#000000;}
+
+body  { 
+	font-family:Arial;
+	font-size:10pt;
+    color:silver;
+	background:#000;
+	margin:5px;
+}
+
+p   {
+    margin-top:0pt;
+    margin-bottom:2pt;
+}
+
+div {
+	scrollbar-base:black;
+	scrollbar-3d-light-color:ThreeDShadow;
+	scrollbar-arrow-color:ThreeDDarkShadow;
+	scrollbar-darkshadow-color:ButtonShadow;
+	scrollbar-face-color:ThreeDHighlight;
+	scrollbar-highlight-color:ThreeDHighlight;
+	scrollbar-shadow-color:ThreeDHighlight;
+	scrollbar-track-color:ButtonFace; /*transparent; /* erst ab CSS3*/
+}
+
+textarea { 
+	color:#000;
+	font-family:Courier New;
+	font-size:10pt;
+	border:solid 1px gray;
+	background:#FFF;
+	overflow:auto;
+
+	scrollbar-base:black;
+	scrollbar-3d-light-color:#404040;
+	scrollbar-arrow-color:black;
+	scrollbar-darkshadow-color:#404040;
+	scrollbar-face-color:white;
+	scrollbar-highlight-color:white;
+	scrollbar-shadow-color:white;
+	scrollbar-track-color:white;
+}
+
+select {
+    background:#ffa;
+    border:1px solid gray; /* nicht bei IE */
+    font-size:8pt;
+}
+
+ol, ul {
+    margin-left:32px;
+}

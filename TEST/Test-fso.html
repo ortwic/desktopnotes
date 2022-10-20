@@ -1,0 +1,83 @@
+<html>
+<head>
+<title></title>
+<link rel="stylesheet" type="text/css" href="../data/notes.css">
+<script type="text/javascript" src="../data/fso.js"></script>
+<script type="text/javascript">
+
+function convert(esc) 
+{
+    var txt = document.getElementById("textFld");
+    if(esc) 
+    {
+        txt.value = escape(txt.value);
+    }
+    else
+    {
+        txt.value = unescape(txt.value);
+    }
+}
+
+function buildData()
+{
+    var data = new Object();
+    var tmpAry = new Array();
+    var i=0;
+    tmpAry = op.value.split("\n");
+    
+    while(tmpAry[i])
+    {
+        data["test"+i]=tmpAry[i];
+        i++;
+    }
+    
+    return data;
+}
+
+function ReadAll(data)
+{
+    op.value="";
+    for(k in data)
+    {
+        // Schreibe Zeile
+        op.value+=k + "=" + data[k];
+    }
+}
+</script>
+</head>
+
+<body>
+<script type="text/javascript" src="data/cookies.js"></script>
+
+<form>
+<table border="0" width="100%" height="100%"><tr><td height="2%">
+<input type="button" value="Save Text" style="width:88px" onclick="setFileData(buildData())">
+<input type="button" value="Read All" style="width:88px" onclick="ReadAll(getFileData())">
+<input type="button" value="Read Text" style="width:88px" onclick="op.value=getFileData(nbr.value)">
+<input type="text" value="test2" style="width:40px" id="text0">
+<input type="button" value="Clear Txt" style="width:88px" onclick="op.value=''">
+<input type="button" value="Pfad" style="width:88px" onclick="getFolder()">
+<input type="button" id="new" value="Escape" style="width:88px;background:#F88;border:groove" onclick="convert(1)">
+<input type="button" id="new" value="Unescape" style="width:88px;background:#FFC;border:groove" onclick="convert(0)">
+<tr><td>
+<textarea id="textFld" style="width:100%;height:100%;background:#ccc;">
+Die Erzählung (nachzulesen hier) schildert die Begegnung 
+eines Touristen mit einem einheimischen Fischer. 
+Der Tourist findet den Fischer dösend in dessen Boot vor. 
+Trotz optimaler Fangbedingungen fährt er nicht 
+noch einmal hinaus. Es entwickelt sich ein Gespräch, 
+in dem der Tourist die Möglichkeiten strategischen 
+</textarea>
+</td></tr></table>
+</form>
+<script type="text/javascript">
+<!--
+
+nbr=document.getElementById('text0');
+op=document.getElementById('textFld');
+
+initFSO(".\\", "notes.txt");
+//-->
+</script>
+</body>
+</html>

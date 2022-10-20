@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8" />
+<title>Desktop-Notes</title>
+<link rel="stylesheet" type="text/css" href="data/notes.css">
+<script type="text/javascript" src="data/clsNotes.js"></script>
+<!-- <script type="text/javascript" src="data/main.js"></script> -->
+<!-- <script type="text/javascript" src="data/context.js"></script> -->
+<!-- <script type="text/javascript" src="data/cookies.js"></script> -->
+<!-- <script type="text/javascript" src="data/fso.js"></script> -->
+<!-- <script type="text/javascript" src="data/cfgBgImg.js"></script> -->
+</head>
+
+<body scroll="no">
+
+<div id="testnote" class="note">Testnote</div>
+
+<div id="contextMenu" class="contextMenu" style="width:128px;">
+ <table id="conMenuTbl" border="0" style="width:100%;height:100%" cellspacing="0">
+   <tr class="item" rel="'newDiv()')">
+    <td colspan="2">&nbsp;&nbsp;&nbsp;Neu...<br></td></tr>
+   <tr class="item" rel="'editContent(lastId)')">
+    <td colspan="2">&nbsp;&nbsp;&nbsp;Bearbeiten<br></td></tr>
+   <tr class="item" rel="'delDiv()')" id="delCmd">
+    <td colspan="2">&nbsp;&nbsp;&nbsp;L&ouml;schen<br></td></tr>
+   <tr class="item" rel="'cfgWdw(\'cfgDiv\')')">
+    <td colspan="2">&nbsp;&nbsp;&nbsp;Eigenschaften<br></td>
+   </tr>
+   <tr><td colspan="2"><hr></td></tr>
+   <tr class="item" rel="'savFilData()')" id="cntSav">
+    <td colspan="2">&nbsp;&nbsp;&nbsp;Daten Speichern<br></td>
+   </tr>
+   <tr class="item" rel="showSubMenu(this,'Exp',109)" id="cntExp">
+    <td>&nbsp;&nbsp;&nbsp;Datenexport<br></td>
+    <td style="font-family:Webdings;text-align:right;">&gt;</td>
+   </tr>
+   <tr class="item" rel="'cfgWdw(\'cfgInfo\')')">
+    <td colspan="2">&nbsp;&nbsp;&nbsp;Info &amp; Hilfe<br></td>
+   </tr>
+   <tr><td colspan="2"><hr></td></tr>
+   <tr class="item" rel="'cfgWdw(\'cfgDsktp\')')">
+    <td colspan="2">&nbsp;&nbsp;&nbsp;Einstellungen<br></td>
+   </tr>
+ </table>
+</div> 
+
+<div id="subMenuExp" class="contextMenu" style="width:96px;">
+  <table id="Dok" border="0" style="width:100%;height:100%;" cellspacing="0">
+    <tr class="item" rel="'expDiv(\'HTML\');')">
+      <td>&nbsp;&nbsp;&nbsp;HTML</td>
+    </tr>
+    <tr  class="item" rel="'expDiv(\'TEXT\');')">
+      <td>&nbsp;&nbsp;&nbsp;Text</td>
+    </tr>
+    <tr class="item" rel="'expDiv(\'CODE\');')">
+      <td>&nbsp;&nbsp;&nbsp;Code</td>
+    </tr>
+    <tr class="item" rel="'lodFilData(1)')">
+      <td>&nbsp;&nbsp;&nbsp;Dateiinhalt<br></td>
+    </tr>
+    <tr class="item" rel="'lodFilData(2)')">
+      <td>&nbsp;&nbsp;&nbsp;Cookieinhalt<br></td>
+    </tr>
+  </table>
+</div> 
+
+<div id="editMenu" class="contextMenu" style="width:112px;">
+ <table id="editMenuTbl" border="0" style="width:100%;height:100%;" cellspacing="0">
+   <tr class="item" rel="="txtOps('Cut')">
+    <td colspan="2">&nbsp;&nbsp;&nbsp;Ausschneiden<br></td>
+   </tr>
+   <tr class="item" rel="="txtOps('Copy')">
+    <td colspan="2">&nbsp;&nbsp;&nbsp;Kopieren<br></td>
+   </tr>
+   <tr class="item" rel="="txtOps('Paste')">
+    <td colspan="2">&nbsp;&nbsp;&nbsp;Einf&uuml;gen<br></td>
+   </tr>
+ </table>
+</div> 
+
+<div id="editForm" class="contextMenu" style="height:42px">
+  <table id="tlbForm" style="margin:1px;border:0;border-collapse:collapse;border-spacing:0">
+    <tr>
+      <td>
+        <span style="background:#F22;color:#FFF" rel="editQuit()" title="Bearbeitungsmodus beenden">&nbsp;<b>&times;</b>
+        </span>
+      </td>
+      <td colspan="9">
+        <select id="fntClr" style="width:39%" title="Schriftfarbe"
+            onChange="txtFrm('ForeColor', this.options[this.selectedIndex].style.color);">
+          <option style="color:#000000">Schwarz</option>
+          <option style="color:#808080">Grau</option>
+          <option style="color:#c0c0c0">Silber</option>
+          <option style="color:#ffffff">Wei&szlig;</option>
+          <option style="color:#ff0000">Rot</option>
+          <option style="color:#800000">Dunkelrot</option>
+          <option style="color:#ffa500">Orange</option>
+          <option style="color:#ffff00">Gelb</option>
+          <option style="color:#808000">Dunkelgelb</option>
+          <option style="color:#00ff00">Hellgr&uuml;n</option>
+          <option style="color:#008000">Gr&uuml;n</option>
+          <option style="color:#00ffff">T&uuml;rkis</option>
+          <option style="color:#008080">Blaugr&uuml;n</option>
+          <option style="color:#0000ff">Blau</option>
+          <option style="color:#000080">Dunkelblau</option>
+          <option style="color:#ff00ff">Pink</option>
+          <option style="color:#800080">Lila</option>
+        </select><select id="fntFce" style="width:42%" title="Schriftart"
+            onchange="txtFrm('FontName', this.options[this.selectedIndex].innerText);">
+          <option title="Arial">Arial</option>
+          <option title="Comic Sans MS">Comic Sans MS</option>
+          <option title="Courier New">Courier New</option>
+          <option title="Fixedsys">Fixedsys</option>
+          <option title="Georgia">Georgia</option>
+          <option title="Helvetica">Helvetica</option>
+          <option title="Impact">Impact</option>
+          <option title="Tahoma">Tahoma</option>
+          <option title="Times New Roman">Times New Roman</option>
+          <option title="Trebuchet MS">Trebuchet MS</option>
+          <option title="Verdana">Verdana</option>
+        </select><select id="fntSze" style="width:19%" title="Schriftgr&ouml;&szlig;e"
+            onChange="txtFrm('FontSize', this.options[this.selectedIndex].innerText);">
+          <option>1</option>
+          <option selected>2</option>
+          <option>3</option>
+          <option>4</option>
+          <option>5</option>
+          <option>6</option>
+          <option>7</option>
+        </select>
+      </td>
+      <td>
+        <button rel="txtFrm('FontSizeRel','-1')"
+          title="Kleiner">a-
+        </button>
+      </td>
+      <td>
+        <button rel="txtFrm('FontSizeRel','+1')"
+          title="Gr&ouml;&szlig;er">a+
+        </button>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <button rel="txtFrm('BR')"
+          title="Zeilenumbruch"><font face="Symbol">¿</font><!--&crarr;-->
+        </button>
+      </td>
+      <td>
+        <button rel="txtFrm('P')"
+          title="Absatz">&para;
+        </button>
+      </td>
+      <td>
+        <button rel="txtFrm('HR')"
+          title="Trennlinie">&mdash;
+        </button>
+      </td>
+      <td>
+        <button rel="txtFrm('Bold')"
+          id="B" title="Fett"><b>F</b>
+        </button>
+      </td>
+      <td>
+        <button rel="txtFrm('Italic')"
+          id="I" title="Kursiv"><i>K</i>
+        </button>
+      </td>
+      <td>
+        <button rel="txtFrm('Underline')"
+          id="U" title="Unterstreichen"><u>U</u>
+        </button>
+      </td>
+      <td>
+        <button rel="txtFrm('CreateLink','',true)"
+          id="A" title="Hyperlink"><u style="color:blue">H</u>
+        </button>
+      </td>
+      <td>
+        <button rel="txtFrm('JustifyLeft')"
+          id="left" title="Linksb&uuml;ndig"><font face="Symbol">Ü</font><!--&rarr;-->
+        </button>
+      </td>
+      <td>
+        <button rel="txtFrm('JustifyCenter')"
+          id="center" title="Zentriert"><font face="Symbol">Û</font><!--&harr;-->
+        </button>
+      </td>
+      <td>
+        <button rel="txtFrm('JustifyRight')"
+          id="right" title="Rechtsb&uuml;ndig"><font face="Symbol">Þ</font><!--&larr;-->
+        </button>
+      </td>
+      <td>
+        <button rel="txtFrm('InsertUnorderedList')"
+          id="UL" title="Ungeordnete Liste">UL
+        </button>
+      </td>
+      <td>
+        <button rel="txtFrm('InsertOrderedList')"
+          id="OL" title="Geordnete Liste">OL
+        </button>
+      </td>
+    </tr>
+  </table>
+</div> 
+
+<p id="dsktp" style="margin:0;padding:0;width:100%;height:100%;position:absolute;">
+</p>
+
+<div id="msgBox" class="dialog" style="width:320;height:120px;">
+  <table border="0" style="width:100%;height:100%">
+    <tr>
+      <td id="msgBoxTitle">
+        Title<br>
+      </td>
+    </tr>
+    <tr>
+      <td id="msgBoxText">
+        Test<br>
+      </td>
+    </tr>
+    <tr>
+      <td style="text-align:center">
+        <span class="tdBorder" style="width:96px;text-align:center;padding:2px"> OK </span>
+      </td>
+    </tr>
+  </table>
+</div>
+</body>
+</html>

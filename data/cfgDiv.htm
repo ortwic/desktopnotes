@@ -1,0 +1,238 @@
+<html>
+<head>
+<title>Eigenschaften Notizzettel</title>
+<link rel="stylesheet" type="text/css" href="notes.css">
+<script type="text/javascript" src="cfgCommon.js"></script>
+<script type="text/javascript" src="cfgDiv.js"></script>
+<script type="text/javascript" src="calendar/epoch_classes.js"></script>
+<link rel="stylesheet" type="text/css" href="calendar/epoch_styles.css" />
+</head>
+
+<body class="config">
+<div style="width:100%;height:238px;overflow:hidden;margin-top:26px;">
+<!-- Design -->
+<div id="reg0" style="display:block">
+<table border="0" cellspacing="4" align="center">
+  <tr> 
+    <td width="30%" style="text-align:center;"> 
+      <fieldset class="tdBorder">
+      <legend><b>Hintergrundfarbe</b></legend>
+      <table border="0" cellspacing="4" align="center">
+        <tr> 
+          <td class="tdBorder" id="dbgclr0" style="width:16px;height:16px;background-color:#ffa;"
+		onmouseover="cmdOvr(this)" onmouseout="cmdOut(this)"
+		onmousedown="chgBox(this,'dbgclr')">&nbsp; </td>
+          <td class="tdBorder" id="dbgclr1" style="width:16px;height:16px;background-color:#af8;"
+		onmouseover="cmdOvr(this)" onmouseout="cmdOut(this)"
+		onmousedown="chgBox(this,'dbgclr')">&nbsp; </td>
+          <td class="tdBorder" id="dbgclr2" style="width:16px;height:16px;background-color:#afa;"
+		onmouseover="cmdOvr(this)" onmouseout="cmdOut(this)"
+		onmousedown="chgBox(this,'dbgclr')">&nbsp; </td>
+          <td class="tdBorder" id="dbgclr3" style="width:16px;height:16px;background-color:#8fa;"
+		onmouseover="cmdOvr(this)" onmouseout="cmdOut(this)"
+		onmousedown="chgBox(this,'dbgclr')">&nbsp; </td>
+        </tr>
+        <tr> 
+          <td class="tdBorder" id="dbgclr8" style="width:16px;height:16px;background-color:#aff;"
+		onmouseover="cmdOvr(this)" onmouseout="cmdOut(this)"
+		onmousedown="chgBox(this,'dbgclr')">&nbsp; </td>
+          <td class="tdBorder" id="dbgclr9" style="width:16px;height:16px;background-color:#8af;"
+		onmouseover="cmdOvr(this)" onmouseout="cmdOut(this)"
+		onmousedown="chgBox(this,'dbgclr')">&nbsp; </td>
+          <td class="tdBorder" id="dbgclr10" style="width:16px;height:16px;background-color:#aaf;"
+		onmouseover="cmdOvr(this)" onmouseout="cmdOut(this)"
+		onmousedown="chgBox(this,'dbgclr')">&nbsp; </td>
+          <td class="tdBorder" id="dbgclr11" style="width:16px;height:16px;background-color:#a8f;"
+		onmouseover="cmdOvr(this)" onmouseout="cmdOut(this)"
+		onmousedown="chgBox(this,'dbgclr')">&nbsp; </td>
+        </tr>
+        <tr> 
+          <td class="tdBorder" id="dbgclr4" style="width:16px;height:16px;background-color:#faf;"
+		onmouseover="cmdOvr(this)" onmouseout="cmdOut(this)"
+		onmousedown="chgBox(this,'dbgclr')">&nbsp; </td>
+          <td class="tdBorder" id="dbgclr5" style="width:16px;height:16px;background-color:#f8a;"
+		onmouseover="cmdOvr(this)" onmouseout="cmdOut(this)"
+		onmousedown="chgBox(this,'dbgclr')">&nbsp; </td>
+          <td class="tdBorder" id="dbgclr6" style="width:16px;height:16px;background-color:#faa;"
+		onmouseover="cmdOvr(this)" onmouseout="cmdOut(this)"
+		onmousedown="chgBox(this,'dbgclr')">&nbsp; </td>
+          <td class="tdBorder" id="dbgclr7" style="width:16px;height:16px;background-color:#fa8;"
+		onmouseover="cmdOvr(this)" onmouseout="cmdOut(this)"
+		onmousedown="chgBox(this,'dbgclr')">&nbsp; </td>
+        </tr>
+        <tr> 
+          <td class="tdBorder" id="dbgclr12" style="height:16px;text-align:center;"
+		onmouseover="cmdOvr(this)" onmouseout="cmdOut(this)"
+        onmousedown="chgBox(this,'dbgclr')" onmouseup="chgColor(this,'dbgclr')" 
+        colspan="4">Individuell
+		  <!--[if gte IE 6]>
+		    <OBJECT id="dlgHelper" CLASSID="clsid:3050f819-98b5-11cf-bb82-00aa00bdce0b" 
+              style="width:0px;height:0px"></OBJECT>
+		  <![endif]-->
+		  </td>
+        </tr>
+      </table>
+      </fieldset>
+    </td>
+	<td width="30%" valign="top"> 
+      <fieldset class="tdBorder" style="height:100%;padding:0px 2px 12px 4px;">
+      <legend><b>Gr&ouml;&szlig;e</b></legend>
+      <table border="0" width="100%" cellspacing="4" align="center" style="margin-top:8px">
+        <tr> 
+          <td> Breite </td>
+          <td class="tdBorder" style="padding:0px"> 
+            <input id="txtWidth" type="text" class="txt3nbr" maxlength="3" onkeyup="divWidth=this.value"> 
+          </td>
+        </tr>
+        <tr> 
+          <td> H&ouml;he </td>
+          <td class="tdBorder" style="width:20;padding:0px"> 
+            <input id="txtHeight" type="text" class="txt3nbr" maxlength="3" onkeyup="divHeight=this.value">
+          </td>
+        </tr>
+      </table>
+      </fieldset>
+	</td>
+  </tr>
+  <tr> 
+    <td width="100%" colspan="2"> 
+      <fieldset class="tdBorder" style="padding:12px 2px 6px 4px">
+      <legend><b>Transparenz</b></legend>
+      <table border="0" cellspacing="4">
+        <tr> 
+          <td class="cmdCtrl" id="opacL" style="text-align:right"
+		onmouseover="if(this.className!='cmdDwn cmdCtrl')this.className='cmdOvr cmdCtrl'"
+		onmouseout="if(this.className=='cmdOvr cmdCtrl')this.className='cmdCtrl'"
+		onmousedown="moveSld(this,'sldOpac',-5)"
+		onmouseup="this.className='cmdOvr cmdCtrl'">3 </td>
+          <td width="116" height="18" class="tdBorder"> <div id="sldOpac" class="sldCtrl" onmousedown="dragLayer(100)"> 
+            </div></td>
+          <td class="cmdCtrl" id="opacR" style="text-align:center"
+		onmouseover="this.className='cmdOvr cmdCtrl'"
+		onmouseout="this.className='cmdCtrl'"
+		onmousedown="moveSld(this,'sldOpac',5)"
+		onmouseup="this.className='cmdOvr cmdCtrl'">4 </td>
+          <td class="tdBorder" style="padding:0px"> <input id="txtOpac" type="text" value="0" class="txt3nbr" maxlength="3" onkeyup="chgSld('sldOpac',this,100)"> 
+          </td>
+        </tr>
+      </table>
+      </fieldset>
+    </td>
+  </tr>
+</table>
+</div>
+<!-- Zeit -->
+<div id="reg1" style="display:none">
+<table border="0" cellspacing="4" align="center">
+  <tr>
+	<td width="40%" rowspan="2">
+	  <fieldset class="tdBorder">
+      <legend><b>Haltbarkeitszeit</b></legend> 
+        <div id="tagTTL" style="text-align:center">
+        <table border="0" width="80%">
+          <tr>
+            <td class="cmdCtrl" id="prevMth" style="text-align:right"
+                onmouseover="if(this.className!='cmdDwn cmdCtrl')this.className='cmdOvr cmdCtrl'"
+                onmouseout="if(this.className=='cmdOvr cmdCtrl')this.className='cmdCtrl'"
+                onmousedown="this.className='cmdDwn cmdCtrl';this.style.cursor='wait';"
+                onmouseup="this.className='cmdOvr cmdCtrl';this.style.cursor='auto';">3 
+            </td>
+            <td>
+              <input id="selMth" class="txtWord" type="text" style="width:80px;text-align:center;" onfocus="this.blur()">
+              <input id="selYr" class="txtWord" type="text" style="width:32px;text-align:left;" onfocus="this.blur()">
+            </td>
+            <td class="cmdCtrl" id="nextMth" style="text-align:center"
+                onmouseover="if(this.className!='cmdDwn cmdCtrl')this.className='cmdOvr cmdCtrl'"
+                onmouseout="if(this.className=='cmdOvr cmdCtrl')this.className='cmdCtrl'"
+                onmousedown="this.className='cmdDwn cmdCtrl';this.style.cursor='wait';"
+                onmouseup="this.className='cmdOvr cmdCtrl';this.style.cursor='auto';">4 
+            </td>
+          </tr>
+        </table>
+          <!-- Platzhalter für Kalenderobjekt -->
+	    </div>
+      <table cellspacing="4">
+        <tr> 
+          <td> Tage </td>
+          <td class="tdBorder" style="width:20;padding:0px"> 
+	    <input id="txtDays" type="text" class="txt3nbr" maxlength="3" onkeyup="setCal(this.value,1)">
+          </td>
+          <td width="40" align="right"> Zeit </td>
+          <td class="tdBorder" style="width:20;padding:0px"> 
+	    <input id="txtHrs" type="text" class="txt2nbr" maxlength="2" onkeyup="ttlArray[1]=chgTime(this)">
+          </td>
+          <td><b> : </b></td>
+          <td class="tdBorder" style="width:20;padding:0px"> 
+	    <input id="txtMin" type="text" class="txt2nbr" maxlength="2" onkeyup="ttlArray[2]=chgTime(this)">
+          </td>
+          <td><b> : </b></td>
+          <td class="tdBorder" style="width:20;padding:0px"> 
+	    <input id="txtSec" type="text" class="txt2nbr" maxlength="2" onkeyup="ttlArray[3]=chgTime(this)">
+          </td>
+        </tr>		
+      </table>
+      <hr style="border:1px dotted gray">
+	  <b>&nbsp;Warnzeit vor Löschung</b><br> 
+      <table border="0" cellspacing="4">
+        <tr> 
+          <td> Tage </td>
+          <td class="tdBorder" style="width:20;padding:0px"> 
+	    <input id="txtWDays" type="text" class="txt3nbr" maxlength="3" onkeyup="ttwArray[0]=this.value">
+          </td>
+          <td width="40" align="right"> Zeit </td>
+          <td class="tdBorder" style="width:20;padding:0px"> 
+	    <input id="txtWHrs" type="text" class="txt2nbr" maxlength="2" onkeyup="ttwArray[1]=chgTime(this)">
+          </td>
+          <td><b> : </b></td>
+          <td class="tdBorder" style="width:20;padding:0px"> 
+	    <input id="txtWMin" type="text" class="txt2nbr" maxlength="2" onkeyup="ttwArray[2]=chgTime(this)">
+          </td>
+          <td><b> : </b></td>
+          <td class="tdBorder" style="width:20;padding:0px"> 
+	    <input id="txtWSec" type="text" class="txt2nbr" maxlength="2" onkeyup="ttwArray[3]=chgTime(this)">
+          </td>
+        </tr>		
+      </table>
+      </fieldset>
+    </td>
+  </tr>      
+</table>
+</div>
+</div>
+<!-- OK & Abbrechen -->
+<table width="100%" border="0" cellspacing="4" align="center">
+  <tr> 
+    <td width="50%" class="tdBorder" style="text-align:center;padding:2px;" 
+	onmouseover="this.className='cmdOvr'"
+	onmouseout="this.className='tdBorder'"
+	onmousedown="this.className='cmdDwn'"
+	onmouseup="onOKclick()">OK </td>
+    <td width="50%" class="tdBorder" style="text-align:center;padding:2px;" 
+	onmouseover="this.className='cmdOvr'"
+	onmouseout="this.className='tdBorder'"
+	onmousedown="this.className='cmdDwn'"
+	onmouseup="window.close()">Abbrechen </td>
+  </tr>
+</table>
+
+<!-- Auswahl -->
+<div id="regCmd0" class="cmdDwn" 
+    style="width:64px;text-align:center;padding:2px;position:absolute;top:5px;left:12px;z-index:1;" 
+	onmouseover="cmdOvr(this)" onmouseout="cmdOut(this)"
+	onmousedown="chgReg(this,'reg0')">
+    Design
+</div>
+<div id="regCmd1" class="tdBorder" 
+    style="width:64px;text-align:center;padding:2px;position:absolute;top:5px;left:80px;z-index:1;" 
+	onmouseover="cmdOvr(this)" onmouseout="cmdOut(this)"
+	onmousedown="chgReg(this,'reg1')">
+    Zeit
+</div>
+
+<script type="text/javascript">
+<!--
+    initCfg();
+//-->
+</script>
+</body>
+</html>

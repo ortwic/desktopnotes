@@ -1,0 +1,74 @@
+<html>
+<head>
+<title></title>
+<link rel="stylesheet" type="text/css" href="../data/notes.css">
+</head>
+
+<body>
+<script type="text/javascript" src="../data/clsNotes.js"></script>
+<script type="text/javascript" src="../data/cookies.js"></script>
+
+<form>
+<table border="0" width="100%" height="100%"><tr><td height="2%">
+<input type="button" id="new" value="New" style="width:88px" onclick="newClass()">
+<input type="text" id="sav" value="0" style="width:24px" onkeyup="savClass(this.value)">
+<input type="button" value="Load Data" style="width:88px" onclick="lodClass(document.getElementById('sav').value)">
+<input type="button" value="Create Div" style="width:88px" onclick="makeDiv(document.getElementById('sav').value)">
+<input type="button" value="Config Div" style="width:88px" onclick="cfgProp(document.getElementById('sav').value)">
+<input type="button" value="Show Source" style="width:88px" onclick="document.getElementById('text1').value = document.body.innerHTML;">
+<input type="reset" value="Clear Txt" style="width:88px" onclick="return true">
+<tr><td>
+<textarea id="text1" style="width:100%;height:100%;background:#ccc;">
+</textarea>
+</td></tr></table>
+</form>
+<script type="text/javascript">
+<!--
+var ntenbr=0;
+var notes = new Array(); // neues Array
+
+function newClass() {
+
+    notes[ntenbr] = new CNote("note"+ntenbr,ntenbr+1,ntenbr+10); // pro Arrayzelle eine Objektinstanz
+    document.getElementById("new").value = "New " + ntenbr;
+    ntenbr++;
+
+}
+
+function savClass(sav) {
+
+if(notes[sav]) {
+    tmp=notes[sav].savNote();
+    document.getElementById("text1").value += tmp+"\n";
+}
+
+}
+
+function lodClass(nbr) {
+
+    if(notes[nbr]) notes[nbr].lodNote();
+    tmp = notes[nbr].getDataString();
+    document.getElementById("text1").value += tmp +"\n";
+
+}
+
+function makeDiv(nbr)
+{
+    if(notes[nbr]) {
+//	notes[nbr].lodNote(); //Wichtig, um Daten aus Cookie zu laden!!!
+	window.status="Cookie muss über 'Load Data' ausgelesen werden!";
+	notes[nbr].drwDiv();
+    }
+
+}
+
+function cfgProp(nbr)
+{
+    if(notes[nbr]) 
+	notes[nbr].cfgDiv();
+}
+
+//-->
+</script>
+</body>
+</html>

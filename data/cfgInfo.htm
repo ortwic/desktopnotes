@@ -1,0 +1,194 @@
+<html>
+<head>
+<title>Allgemeine Informationen</title>
+<link rel="stylesheet" type="text/css" href="notes.css">
+<script type="text/javascript" src="cfgCommon.js"></script>
+<script type="text/javascript">
+
+var ie = navigator.appVersion.charAt(22);
+var wdwSets=window.dialogArguments;
+
+window.dialogWidth="392px";
+if(ie>6) dialogHeight="430px"; //Ab IE7 wird Parameter anders intepretiert
+else dialogHeight="454px";
+
+function onOKclick()
+{
+	this.className="tdBorder";
+	window.close()
+}
+
+</script>
+<style>
+td {vertical-align:top}
+</style>
+</head>
+
+<body class="config">
+<div style="width:100%;height:354px;overflow:hidden;margin-top:26px;">
+<!-- Info -->
+<div id="reg0" style="display:block">
+<table border="0" height="100%" cellspacing="4" align="center">
+  <tr> 
+    <td width="100%" style="vertical-align:middle"> 
+      <p style="font-size:24pt;font-weight:bold">Desktop-Notes</p>
+      <p id="version" style="margin-bottom:40px;text-align:right" >Version&nbsp;</p>
+      <a href="http://ortwin.qu.am" onfocus="this.blur()">Neue Updates</a> 
+    </td>
+  </tr>
+</table>
+</div>
+<!-- Kurzanleitung -->
+<div id="reg1" style="display:none">
+<table border="0" cellspacing="4" align="center">
+  <tr> 
+    <td width="100%" colspan="3"> 
+      <fieldset class="tdBorder" style="padding:6px;">
+        <legend><b>Kurzanleitung</b></legend>
+        <span style="width:100%;height:320px;overflow:auto;">
+    	Alle wichtigen Befehle erreichen Sie über das Kontextmenü, dass sich mit einem Rechtsklick öffnen lässt.
+    	Sie können neue Notizen erstellen oder löschen. Erst eine Texteingabe oder das Ver&shy;schie&shy;ben einer neu 
+    	erstellten Notiz speichert sie. Zum Löschen muss eine Notiz einfach angeklickt werden und der Befehl 
+    	&quot;Löschen&quot; aus dem Kontextmenü gewählt werden. Mit gedr&uuml;ckter &quot;Shift&quot;-Taste l&auml;sst 
+    	sich die Gr&ouml;&szlig;e der Notizen ver&auml;ndern. Im Eigen&shy;schafts&shy;men&uuml; lassen sich noch weitere 
+    	Einstellungen f&uuml;r die Notizen vornehmen.<br>
+        Weitere Features sind in Planung.<br>
+    	<hr>
+        Mit einem langsamen Doppelklick auf die Notizen lässt sich Text hinzufügen oder bearbeiten. Je nach
+        gew&auml;hlten Bearbeitungs&shy;modus erscheint eine Formatierungsleiste oder es lassen sich uneingeschr&auml;nkt
+        HTML-Tags zum Formatieren verwenden. Letztere eignet sich f&uuml;r Experten und es sollte nur 
+        <b>ausschlie&szlig;lich</b> HTML-Code verwendet werden. <br>
+    	Im Kontextmenü finden sich noch diverse Verweise auf JavaScript-Referenzen.<br>
+        </span>
+      </fieldset>
+    </td>
+  </tr>
+</table>
+</div>
+<!-- Dokumentation -->
+<div id="reg2" style="display:none">
+<table border="0" cellspacing="4" align="center">
+  <tr> 
+    <td width="100%" colspan="3"> 
+      <fieldset class="tdBorder" style="padding:6px;">
+        <legend><b>Dokumentation</b></legend>
+        <div style="width:100%;height:320px;overflow:auto;">
+          <table border="0">
+            <tr>
+              <td colspan="2">
+                Dokumentation zu JavaScripts (nur im IE getestet)<br><br>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <a href="http://www.infos24.de/javascripte/handbuch/21_js_drag_and_drop.htm" target="_blank">
+                Drag'n'Drop</a>
+              </td>
+              <td>
+                Tutorial zum Erstellen von Drag'n'Drop-fähigen Elementen mittels JavaScript.
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <a href="http://www.infos24.de/javascripte/handbuch/26_js_cookie.htm" target="_blank">
+                Cookies</a>
+              </td>
+              <td>
+                Speichern und Laden von Daten mittels Cookies und JavaScript.
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <a href="http://www.html-world.de/program/fso_1.php" target="_blank">
+                FSO</a>
+              </td>
+              <td>
+                Dateiverwaltung mittels dem FileSystemObject via ActiveX und JScript.
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <a href="http://www.quirksmode.org/js/introevents.html" target="_blank">
+                Events</a>
+              </td>
+              <td>
+                Gute Beschreibung zu Events in JavaScript. (Englisch)
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <a href="http://www.dynamicdrive.com/dynamicindex11/dhtmladjust.htm" target="_blank">
+                Slider</a>
+              </td>
+              <td>
+                Beispiel für Schieberegler in JavaScript ähnlich den Steuerelementen in Windows. (Englisch)  
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <a href="http://www.jswelt.de/index.php?opencat=JavaScripts&artid=983264682" target="_blank">
+                Text-Edit</a>
+              </td>
+              <td>
+                Fertiges JavaScript mit Beispiel zum dynamischen Bearbeiten von statischem Text.
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <a href="http://www.tutorials.de/forum/javascript-tutorials/24357-html-js-rich-editing-mit-contenteditable.html" target="_blank">
+                WYSIWYG-Edit</a>
+              </td>
+              <td>
+                Textbearbeitung mittels Div-Container und der Eigenschaft "contenteditable".
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <a href="http://www.meanfreepath.com/javascript_calendar/index.html" target="_blank">
+                Kalender</a>
+              </td>
+              <td>
+                Epoch – The World's Most Advanced JavaScript Calendar
+              </td>
+            </tr>
+          </table>
+        </div>
+      </fieldset>
+    </td>
+  </tr>
+</table>
+</div>
+
+</div>
+<br>
+&nbsp; <span class="tdBorder" style="width:120px;text-align:center;padding:2px;" 
+    	onmouseover="this.className='cmdOvr'" onmouseout="this.className='tdBorder'"
+    	onmousedown="this.className='cmdDwn'"
+    	onmouseup="onOKclick()">OK</span>
+
+<!-- Auswahl -->
+<div id="regCmd0" class="cmdDwn" 
+    style="width:116px;text-align:center;padding:2px;position:absolute;top:5px;left:12px;z-index:1;" 
+    onmouseover="cmdOvr(this)" onmouseout="cmdOut(this)"
+    onmousedown="chgReg(this,'reg0')">
+    Info
+</div>
+<div id="regCmd1" class="tdBorder" 
+    style="width:116px;text-align:center;padding:2px;position:absolute;top:5px;left:132px;z-index:1;" 
+    onmouseover="cmdOvr(this)" onmouseout="cmdOut(this)"
+    onmousedown="chgReg(this,'reg1')">
+    Kurzanleitung
+</div>
+<div id="regCmd2" class="tdBorder" 
+    style="width:116px;text-align:center;padding:2px;position:absolute;top:5px;left:252px;z-index:1;" 
+    onmouseover="cmdOvr(this)" onmouseout="cmdOut(this)"
+    onmousedown="chgReg(this,'reg2')">
+    Dokumentation
+</div>
+<script type="text/javascript">
+
+document.getElementById("version").innerText+=wdwSets[0];
+
+</script>
+</body>
+</html>
